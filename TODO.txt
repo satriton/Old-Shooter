@@ -1,0 +1,31 @@
+Description:
+	Jeu 2D, chaque joystick controle un viseur qui se déplace sur l'écran. 
+	Des choses shootable appraissent, le premier joueur qui tire dessus gagne les points/Malus
+
+	2 mode de jeu:
+		vs
+		coop ?
+
+	Inspi: Time Crisis II
+
+Décors:
+	far ouest
+	guerre des bouttons
+	incendit à éteindre (ES: maison a eteindre , ED: personne enflammé qui cours, GP: partron de caserne)
+	guerre
+	zombie
+
+
+Mécanique de jeu:
+	tir
+	recharger
+	missile ?
+	se cacher ?
+	amélioration d'armes ?
+
+
+Chose shootable:
+	Ennemie statique qui apparaissent
+	Ennemie qui bouge qui appraissent
+	Genti perso qui apparraissent
+	Projectile envoyer par un Ennemie ?
