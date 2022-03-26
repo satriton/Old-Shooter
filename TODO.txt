@@ -29,6 +29,7 @@ Mécanique de jeu:
 	amélioration d'armes ?
 	Plusieurs armes ?
 	Boss ?
+	Bouton pour slow le déplacementdu curseur et être plus précie
 
 
 Chose shootable:
