@@ -8,12 +8,17 @@ Description:
 
 	Inspi: Time Crisis II
 
+	Il faut survivre 4min et marquer le plus de points (coop mi vs car compte le score des joueurs)
+
 Décors:
 	far ouest
 	guerre des bouttons
 	incendit à éteindre (ES: maison a eteindre , ED: personne enflammé qui cours, GP: partron de caserne)
 	guerre
 	zombie
+	tirer sur des personnages d'arcade
+	médiéval
+	aliens
 
 
 Mécanique de jeu:
@@ -29,3 +34,33 @@ Chose shootable:
 	Ennemie qui bouge qui appraissent
 	Genti perso qui apparraissent
 	Projectile envoyer par un Ennemie ?
+
+
+
+TODO:
+	-Viseur qui se déplace
+	-Ennemi statique
+	-System pour tirer sur les ennemie
+	-System de rechargement
+	-UI
+	-System de point
+	-Autres Ennemie
+	-Scene à peut près joli
+	-Menu
+	-Hight Score
+
+
+Structures du jeux:
+	IShootable:
+		Spawn
+		GetShoot
+		DoAction
+		Die
+
+	PlayerMovment
+		Move
+		Shoot
+		Reload
+
+
+	EnnemieManager
