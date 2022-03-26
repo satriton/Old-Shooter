@@ -27,6 +27,8 @@ Mécanique de jeu:
 	missile ?
 	se cacher ?
 	amélioration d'armes ?
+	Plusieurs armes ?
+	Boss ?
 
 
 Chose shootable:
@@ -38,10 +40,6 @@ Chose shootable:
 
 
 TODO:
-	-Viseur qui se déplace
-	-Ennemi statique
-	-System pour tirer sur les ennemie
-	-System de rechargement
 	-UI
 	-System de point
 	-Autres Ennemie

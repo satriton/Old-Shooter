@@ -32,7 +32,7 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""608b9320-84a3-4049-805e-862e17e12945"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -114,7 +114,7 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e824cfa5-2ee6-4f4c-88c8-da30079256d0"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -125,7 +125,119 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7cdfbf7b-429b-4c5a-ba3c-52568e878c95"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""P2"",
+            ""id"": ""10dd78a9-81b4-4562-a530-bff5657d1f63"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveCrossair"",
+                    ""type"": ""Value"",
+                    ""id"": ""c9a621ea-c8c3-4f61-a31d-5245bc1e4785"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""72188da3-c03c-47e4-a25a-164c59a2f93b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""a721368b-54e0-426c-b3ac-1d62d78e0cf9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""c8070750-abb5-4745-9f0d-17e0343f150d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCrossair"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""02d81e8c-d61f-40c2-9eda-83b2cd218899"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCrossair"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7c6f2c2b-cc4f-422f-9a44-e240231f9d34"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCrossair"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a94f5377-f7d4-4ab0-b796-5b2e7d30c213"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCrossair"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1c101f1d-7954-456e-9409-6fd8dfac2f97"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCrossair"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1034bf2b-dafd-478f-bb21-4230089c5d24"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75e0d465-b298-44ea-86f7-da408be2b5fc"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -143,6 +255,11 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
         m_P1_MoveCrossair = m_P1.FindAction("MoveCrossair", throwIfNotFound: true);
         m_P1_Shoot = m_P1.FindAction("Shoot", throwIfNotFound: true);
         m_P1_Reload = m_P1.FindAction("Reload", throwIfNotFound: true);
+        // P2
+        m_P2 = asset.FindActionMap("P2", throwIfNotFound: true);
+        m_P2_MoveCrossair = m_P2.FindAction("MoveCrossair", throwIfNotFound: true);
+        m_P2_Shoot = m_P2.FindAction("Shoot", throwIfNotFound: true);
+        m_P2_Reload = m_P2.FindAction("Reload", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -247,7 +364,62 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
         }
     }
     public P1Actions @P1 => new P1Actions(this);
+
+    // P2
+    private readonly InputActionMap m_P2;
+    private IP2Actions m_P2ActionsCallbackInterface;
+    private readonly InputAction m_P2_MoveCrossair;
+    private readonly InputAction m_P2_Shoot;
+    private readonly InputAction m_P2_Reload;
+    public struct P2Actions
+    {
+        private @PlayControls m_Wrapper;
+        public P2Actions(@PlayControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveCrossair => m_Wrapper.m_P2_MoveCrossair;
+        public InputAction @Shoot => m_Wrapper.m_P2_Shoot;
+        public InputAction @Reload => m_Wrapper.m_P2_Reload;
+        public InputActionMap Get() { return m_Wrapper.m_P2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(P2Actions set) { return set.Get(); }
+        public void SetCallbacks(IP2Actions instance)
+        {
+            if (m_Wrapper.m_P2ActionsCallbackInterface != null)
+            {
+                @MoveCrossair.started -= m_Wrapper.m_P2ActionsCallbackInterface.OnMoveCrossair;
+                @MoveCrossair.performed -= m_Wrapper.m_P2ActionsCallbackInterface.OnMoveCrossair;
+                @MoveCrossair.canceled -= m_Wrapper.m_P2ActionsCallbackInterface.OnMoveCrossair;
+                @Shoot.started -= m_Wrapper.m_P2ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_P2ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_P2ActionsCallbackInterface.OnShoot;
+                @Reload.started -= m_Wrapper.m_P2ActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_P2ActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_P2ActionsCallbackInterface.OnReload;
+            }
+            m_Wrapper.m_P2ActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MoveCrossair.started += instance.OnMoveCrossair;
+                @MoveCrossair.performed += instance.OnMoveCrossair;
+                @MoveCrossair.canceled += instance.OnMoveCrossair;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
+            }
+        }
+    }
+    public P2Actions @P2 => new P2Actions(this);
     public interface IP1Actions
+    {
+        void OnMoveCrossair(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
+    }
+    public interface IP2Actions
     {
         void OnMoveCrossair(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
