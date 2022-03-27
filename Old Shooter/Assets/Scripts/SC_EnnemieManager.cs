@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class SC_EnnemieManager : MonoBehaviour
 {
-    public GameObject prefabEnemie;
+    [SerializeField] public GameObject[] prefabsEnemies;
 
     public float gameTime;
 
     public float timeBetweenSpawn;
 
+    private SpawnPositions spawnPositions;
+
 
     void Start()
     {
+        spawnPositions = new SpawnPositions();
+        
         InvokeRepeating("SpawnEnnemie", 0, timeBetweenSpawn);
+
     }
 
     private void Update()
@@ -27,9 +32,18 @@ public class SC_EnnemieManager : MonoBehaviour
 
     void SpawnEnnemie()
     {
-        var x = Random.Range(-5f, 5f);
-        var y = Random.Range(-5f, 5f);
+        List<SpawnPositions.SpawnPosition> emptySpawn = SpawnPositions.getEmptyList();
 
-        Instantiate(prefabEnemie, new Vector3(x, y, 0f), Quaternion.identity);
+        if (emptySpawn != null && emptySpawn.Count > 0)
+        {
+            int indicePos = (int) Random.Range(0f,emptySpawn.Count);
+
+            SpawnPositions.SpawnPosition spawnPos = emptySpawn[indicePos];
+            spawnPos.isEmpty = false;
+
+            int indicePrefab = (int)Random.Range(0f, prefabsEnemies.Length);
+
+            Instantiate(prefabsEnemies[indicePrefab], spawnPos.position, spawnPos.angleSpawn);
+        }
     }
 }

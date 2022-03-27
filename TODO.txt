@@ -47,6 +47,7 @@ TODO:
 	-Scene à peut près joli
 	-Menu
 	-Hight Score
+	-Boule de paille qui traverse l'écran
 
 
 Structures du jeux:

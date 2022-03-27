@@ -37,6 +37,9 @@ public class SC_StaticEnnemie : MonoBehaviour, IShootable
 
     private void Die()
     {
+        var currentPosition = SpawnPositions.getSpawnPos(transform.position);
+        currentPosition.isEmpty = true;
+
         Destroy(this.gameObject);
     }
 
