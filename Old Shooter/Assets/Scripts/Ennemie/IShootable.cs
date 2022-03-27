@@ -5,7 +5,7 @@ using UnityEngine;
 interface IShootable
 {
     public void OnSpawn();
-    public void GetShoot();
+    public void GetShoot(SC_Player scplayer);
     public void DoAction();
     public void Move(List<Vector2> listOfPointPath);
 }

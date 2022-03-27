@@ -12,10 +12,9 @@ class SpawnPositions
     public SpawnPositions()
     {
         spawnPosList = new List<SpawnPosition> {
-            new SpawnPosition(new Vector3(-9f,-3.5f,1f)),       // Caisse gauche: droite
             new SpawnPosition(new Vector3(-10f,-2.7f,1f)),      // Caisse gauche: dessus
             new SpawnPosition(new Vector3(-4f,-3.9f,-5f)),      // Carosse: droite
-            new SpawnPosition(new Vector3(-8f,-3.8f,-5f)),      // Carosse: gauche
+            // new SpawnPosition(new Vector3(-8f,-3.8f,-5f)),      // Carosse: gauche
             new SpawnPosition(new Vector3(-6.3f,-2f,-5f)),      // Carosse: dessus
             new SpawnPosition(new Vector3(-7.8f,-4.5f,-15f)),   // Double Caisse gauche: top droite
             new SpawnPosition(new Vector3(-9.3f,-4.3f,-15f)),   // Double Caisse gauche: top gauche
@@ -23,7 +22,11 @@ class SpawnPositions
             new SpawnPosition(new Vector3(-1f,-4.9f,-15f)),     // Double Caisse milieu: top gauche
             new SpawnPosition(new Vector3(6.3f,-4f,-15f)),      // Caisse droite
             new SpawnPosition(new Vector3(2.4f,-4.65f,-15f)),   // Squelette
-            new SpawnPosition(new Vector3(-30f,0f,-15f))        // Truc random
+            new SpawnPosition(new Vector3(-1f,0f,1f)),          // Prison: Toit Gauche
+            new SpawnPosition(new Vector3(1.5f,0f,1f)),         // Prison: Toit Droite
+            new SpawnPosition(new Vector3(3.2f,-3.5f,1f)),      // Prison: Droite
+            new SpawnPosition(new Vector3(7.5f,0.9f,1f)),       // Chateau d'eau: Toit
+            new SpawnPosition(new Vector3(7.8f,-2f,1f))         // Chateau d'eau: Echelle
         };
     }
 

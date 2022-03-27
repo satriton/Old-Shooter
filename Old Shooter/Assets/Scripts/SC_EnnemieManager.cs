@@ -6,7 +6,8 @@ public class SC_EnnemieManager : MonoBehaviour
 {
     [SerializeField] public GameObject[] prefabsEnemies;
 
-    public float gameTime;
+
+    public static float gameTime = 120;
 
     public float timeBetweenSpawn;
 

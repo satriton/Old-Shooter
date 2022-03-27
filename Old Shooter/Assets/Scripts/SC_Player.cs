@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
@@ -14,14 +15,23 @@ public class SC_Player : MonoBehaviour, PlayControls.IP1Actions, PlayControls.IP
     public UnityEvent<bool> OnFireEvent; //UnityEvent<isP1>
     public UnityEvent<bool> OnReloadEvent; //UnityEvent<isP1>
 
+    public Sprite crosshairSprite;
+    public Sprite needReloadSprite;
+
     private PlayControls controls;
     private Rigidbody2D rb;
+    private SC_AudioManager scAudioManager;
+
+    [SerializeField] private GameObject impactBalleAnim;
+
+    [SerializeField] private Text scoreText;
     
     void Awake()
     {
         controls = new PlayControls();
 
         rb = GetComponent<Rigidbody2D>();
+        scAudioManager = GetComponent<SC_AudioManager>();
 
         if (isP1)
         {
@@ -43,9 +53,9 @@ public class SC_Player : MonoBehaviour, PlayControls.IP1Actions, PlayControls.IP
         }
     }
 
-    void Update()
+    public void updateScore(int STATIC_ENNEMIE_POINTS)
     {
-        
+        scoreText.GetComponent<SC_ScoreUI>().updateScore(isP1, STATIC_ENNEMIE_POINTS);
     }
 
     public void OnMoveCrossair(InputAction.CallbackContext context)
@@ -56,7 +66,7 @@ public class SC_Player : MonoBehaviour, PlayControls.IP1Actions, PlayControls.IP
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if(nbBalle > 0)
+        if (nbBalle > 0)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
 
@@ -66,19 +76,41 @@ public class SC_Player : MonoBehaviour, PlayControls.IP1Actions, PlayControls.IP
                 if (hitObjectRigibody.CompareTag("Shootable"))
                 {
                     IShootable shootableScript = (IShootable)hitObjectRigibody.gameObject.GetComponent<IShootable>();
-                    shootableScript.GetShoot(); 
+                    shootableScript.GetShoot(this); 
                 }
             }
 
+            Instantiate(impactBalleAnim, new Vector3(transform.position.x, transform.position.y, -30f), Quaternion.identity);
+
             nbBalle -= 1;
             OnFireEvent?.Invoke(isP1);
+
+            scAudioManager.playFireSound();
         }
+
+        updateCrosshair();
     }
 
     public void OnReload(InputAction.CallbackContext context)
     {
         nbBalle = nbBalleMax;
         OnReloadEvent?.Invoke(isP1);
+        updateCrosshair();
+        scAudioManager.playReloadSound();
+    }
+
+    private void updateCrosshair()
+    {
+        Sprite updatedCrosshair;
+        if (nbBalle <= 0)
+        {
+            updatedCrosshair = needReloadSprite;
+        } else
+        {
+            updatedCrosshair = crosshairSprite;
+        }
+
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = updatedCrosshair;
     }
 
     private void OnEnable()
