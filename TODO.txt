@@ -29,7 +29,8 @@ Mécanique de jeu:
 	amélioration d'armes ?
 	Plusieurs armes ?
 	Boss ?
-	Bouton pour slow le déplacementdu curseur et être plus précie
+	Bouton pour slow le déplacement du curseur et être plus précie
+	Ennemie qui disparaissent après avoir tirer sur les joueurs ?
 
 
 Chose shootable:
@@ -41,14 +42,13 @@ Chose shootable:
 
 
 TODO:
-	-UI
+	-UI (balle restante, timeur, score)
 	-System de point
 	-Autres Ennemie
-	-Scene à peut près joli
 	-Menu
 	-Hight Score
 	-Boule de paille qui traverse l'écran
-
+	-Effet de balle qui traverse l'écran
 
 Structures du jeux:
 	IShootable:

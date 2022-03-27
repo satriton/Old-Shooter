@@ -41,7 +41,7 @@ public class SC_EnnemieManager : MonoBehaviour
             SpawnPositions.SpawnPosition spawnPos = emptySpawn[indicePos];
             spawnPos.isEmpty = false;
 
-            int indicePrefab = (int)Random.Range(0f, prefabsEnemies.Length);
+            int indicePrefab = (int) Random.Range(0f, prefabsEnemies.Length);
 
             Instantiate(prefabsEnemies[indicePrefab], spawnPos.position, spawnPos.angleSpawn);
         }

@@ -2,16 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class SC_Player : MonoBehaviour, PlayControls.IP1Actions, PlayControls.IP2Actions
 {
     public bool isP1;
     public float movementSpeed;
-    public int maxMagazineSize;
+    public int nbBalleMax = 7;
+    public int nbBalle = 7;
+    public UnityEvent<bool> OnFireEvent; //UnityEvent<isP1>
+    public UnityEvent<bool> OnReloadEvent; //UnityEvent<isP1>
 
     private PlayControls controls;
-    private int pistolMagazine;
     private Rigidbody2D rb;
     
     void Awake()
@@ -53,22 +56,29 @@ public class SC_Player : MonoBehaviour, PlayControls.IP1Actions, PlayControls.IP
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-
-        if (hit.collider != null)
+        if(nbBalle > 0)
         {
-            var hitObjectRigibody = hit.rigidbody;
-            if (hitObjectRigibody.CompareTag("Shootable"))
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
+
+            if (hit.collider != null)
             {
-                IShootable shootableScript = (IShootable)hitObjectRigibody.gameObject.GetComponent<IShootable>();
-                shootableScript.GetShoot(); 
+                var hitObjectRigibody = hit.rigidbody;
+                if (hitObjectRigibody.CompareTag("Shootable"))
+                {
+                    IShootable shootableScript = (IShootable)hitObjectRigibody.gameObject.GetComponent<IShootable>();
+                    shootableScript.GetShoot(); 
+                }
             }
+
+            nbBalle -= 1;
+            OnFireEvent?.Invoke(isP1);
         }
     }
 
     public void OnReload(InputAction.CallbackContext context)
     {
-        pistolMagazine = maxMagazineSize;
+        nbBalle = nbBalleMax;
+        OnReloadEvent?.Invoke(isP1);
     }
 
     private void OnEnable()
