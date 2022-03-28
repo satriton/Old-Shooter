@@ -47,6 +47,8 @@ TODO:
 	-Boule de paille qui traverse l'écran
 	-Effet de balle qui traverse l'écran
 	-Bruit charger vide quand plus de balle
+	-Curseur qui peuvent sortir de l'écran
+	-MenuFin en anglais
 
 Structures du jeux:
 	IShootable:

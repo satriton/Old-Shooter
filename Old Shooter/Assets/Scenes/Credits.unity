@@ -678,7 +678,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "Par \nPaul Anaclet\n\nMusique\nDoTheFlo"
+  m_Text: "By \nPaul Anaclet\n\nMusic\nDoTheFlo"
 --- !u!222 &243530097
 CanvasRenderer:
   m_ObjectHideFlags: 0

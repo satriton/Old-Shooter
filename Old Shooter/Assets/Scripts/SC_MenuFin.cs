@@ -16,13 +16,13 @@ public class SC_MenuFin : MonoBehaviour
         audioVictoire();
 
         if (SC_ScoreUI.scoreP1 > SC_ScoreUI.scoreP2)
-            victoryText.text = "Victoire de Joueur 1 !";
+            victoryText.text = "Player 1 wins !";
         else
-            victoryText.text = "Victoire de Joueur 2 !";
+            victoryText.text = "Player 2 wins !";
 
 
-        scoreP1.text = "Score Joueur 1\n" + SC_ScoreUI.scoreP1;
-        scoreP2.text = "Score Joueur 2\n" + SC_ScoreUI.scoreP2;
+        scoreP1.text = "Player 1 score\n" + SC_ScoreUI.scoreP1;
+        scoreP2.text = "Player 2 score\n" + SC_ScoreUI.scoreP2;
     }
 
     // Update is called once per frame

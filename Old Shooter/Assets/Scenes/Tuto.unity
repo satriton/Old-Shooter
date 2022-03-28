@@ -1466,7 +1466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Recharger
+  m_Text: Reload
 --- !u!222 &575870564
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3206,7 +3206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tirer
+  m_Text: Shoot
 --- !u!222 &1273677475
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -136,6 +136,7 @@ MonoBehaviour:
   crosshairSprite: {fileID: 21300000, guid: 46eddb20eb493894892d22d91f448456, type: 3}
   needReloadSprite: {fileID: 21300000, guid: c03e5bac4fd83f34e9c56924c47c0f08, type: 3}
   impactBalleAnim: {fileID: 417057478833353440, guid: 639405d343d376c4fa3629dce168aacd, type: 3}
+  pauseBoutonsInspector: {fileID: 0}
   scoreText: {fileID: 0}
 --- !u!114 &7621838750539183045
 MonoBehaviour:
@@ -167,7 +168,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 570a0aa5d1461874795335c990feee56, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -359,7 +360,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a526e499c6f86a448af02a6ab4e7ed3a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -455,7 +456,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d6082bd2b5091d447905713ec2dc3649, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -551,7 +552,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a87ed2fcd248d2f409836368f74a5575, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
