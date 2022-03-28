@@ -53,6 +53,15 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""5775963d-722d-4fb6-9b07-c409e3f716d5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,28 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0078b0d9-0f64-4597-9adc-d5db780ca1b0"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f320d791-2ba2-4445-92af-65a320ae933a"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -161,6 +192,15 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                     ""name"": ""Reload"",
                     ""type"": ""Button"",
                     ""id"": ""a721368b-54e0-426c-b3ac-1d62d78e0cf9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""607828b6-fce5-4f0b-adf4-0ec1836a5088"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -244,6 +284,28 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7919bb0-ba1a-4ebf-a0cb-562537cf7821"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db142323-2543-4b44-87cb-2adaa032862c"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -255,11 +317,13 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
         m_P1_MoveCrossair = m_P1.FindAction("MoveCrossair", throwIfNotFound: true);
         m_P1_Shoot = m_P1.FindAction("Shoot", throwIfNotFound: true);
         m_P1_Reload = m_P1.FindAction("Reload", throwIfNotFound: true);
+        m_P1_Pause = m_P1.FindAction("Pause", throwIfNotFound: true);
         // P2
         m_P2 = asset.FindActionMap("P2", throwIfNotFound: true);
         m_P2_MoveCrossair = m_P2.FindAction("MoveCrossair", throwIfNotFound: true);
         m_P2_Shoot = m_P2.FindAction("Shoot", throwIfNotFound: true);
         m_P2_Reload = m_P2.FindAction("Reload", throwIfNotFound: true);
+        m_P2_Pause = m_P2.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -322,6 +386,7 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_P1_MoveCrossair;
     private readonly InputAction m_P1_Shoot;
     private readonly InputAction m_P1_Reload;
+    private readonly InputAction m_P1_Pause;
     public struct P1Actions
     {
         private @PlayControls m_Wrapper;
@@ -329,6 +394,7 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
         public InputAction @MoveCrossair => m_Wrapper.m_P1_MoveCrossair;
         public InputAction @Shoot => m_Wrapper.m_P1_Shoot;
         public InputAction @Reload => m_Wrapper.m_P1_Reload;
+        public InputAction @Pause => m_Wrapper.m_P1_Pause;
         public InputActionMap Get() { return m_Wrapper.m_P1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -347,6 +413,9 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                 @Reload.started -= m_Wrapper.m_P1ActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_P1ActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_P1ActionsCallbackInterface.OnReload;
+                @Pause.started -= m_Wrapper.m_P1ActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_P1ActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_P1ActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_P1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +429,9 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -371,6 +443,7 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_P2_MoveCrossair;
     private readonly InputAction m_P2_Shoot;
     private readonly InputAction m_P2_Reload;
+    private readonly InputAction m_P2_Pause;
     public struct P2Actions
     {
         private @PlayControls m_Wrapper;
@@ -378,6 +451,7 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
         public InputAction @MoveCrossair => m_Wrapper.m_P2_MoveCrossair;
         public InputAction @Shoot => m_Wrapper.m_P2_Shoot;
         public InputAction @Reload => m_Wrapper.m_P2_Reload;
+        public InputAction @Pause => m_Wrapper.m_P2_Pause;
         public InputActionMap Get() { return m_Wrapper.m_P2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -396,6 +470,9 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                 @Reload.started -= m_Wrapper.m_P2ActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_P2ActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_P2ActionsCallbackInterface.OnReload;
+                @Pause.started -= m_Wrapper.m_P2ActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_P2ActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_P2ActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_P2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -409,6 +486,9 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -418,11 +498,13 @@ public partial class @PlayControls : IInputActionCollection2, IDisposable
         void OnMoveCrossair(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IP2Actions
     {
         void OnMoveCrossair(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

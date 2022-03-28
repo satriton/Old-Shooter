@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SC_EnnemieManager : MonoBehaviour
 {
     [SerializeField] public GameObject[] prefabsEnemies;
-
 
     public static float gameTime = 120;
 
@@ -14,8 +14,9 @@ public class SC_EnnemieManager : MonoBehaviour
     private SpawnPositions spawnPositions;
 
 
-    void Start()
+    void Awake()
     {
+        SC_Player.isGame = true;
         spawnPositions = new SpawnPositions();
         
         InvokeRepeating("SpawnEnnemie", 0, timeBetweenSpawn);
@@ -27,6 +28,8 @@ public class SC_EnnemieManager : MonoBehaviour
         if(gameTime < 0)
         {
             CancelInvoke();
+            SC_Player.isGame = false;
+            SceneManager.LoadScene("MenuFin");
         }
         gameTime -= Time.deltaTime;
     }

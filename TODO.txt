@@ -42,10 +42,7 @@ Chose shootable:
 
 
 TODO:
-	-UI (balle restante, timeur, score)
-	-System de point
 	-Autres Ennemie
-	-Menu
 	-Hight Score
 	-Boule de paille qui traverse l'écran
 	-Effet de balle qui traverse l'écran
