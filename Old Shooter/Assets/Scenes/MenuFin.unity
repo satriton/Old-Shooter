@@ -7130,7 +7130,7 @@ GameObject:
   - component: {fileID: 771059537}
   - component: {fileID: 771059536}
   m_Layer: 0
-  m_Name: Credits
+  m_Name: Menu
   m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7162,7 +7162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b654c7a45b39a04183deee9aed8547b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Credits
+  sceneToLoad: Menu
 --- !u!61 &771059537
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7250,7 +7250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: af2d938c93f491d4fba2e85b1a82c920, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c85fc9d38da570d4998221d6b392099f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7691,7 +7691,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.05937779, y: 0.07570684}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.7, y: 2.7, z: 0.8, w: 2.6000001}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.4, y: 6.4}
     newSize: {x: 6.4, y: 6.4}

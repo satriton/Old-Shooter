@@ -7,7 +7,7 @@ public class SC_EnnemieManager : MonoBehaviour
 {
     [SerializeField] public GameObject[] prefabsEnemies;
 
-    public static float gameTime = 120;
+    public static float gameTime;
 
     public float timeBetweenSpawn;
 
@@ -18,7 +18,11 @@ public class SC_EnnemieManager : MonoBehaviour
     {
         SC_Player.isGame = true;
         spawnPositions = new SpawnPositions();
-        
+        gameTime = 120;
+        SC_ScoreUI.scoreP1 = 0;
+        SC_ScoreUI.scoreP2 = 0;
+
+
         InvokeRepeating("SpawnEnnemie", 0, timeBetweenSpawn);
 
     }

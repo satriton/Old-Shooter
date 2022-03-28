@@ -65,10 +65,10 @@ public class SC_Player : MonoBehaviour, PlayControls.IP1Actions, PlayControls.IP
 
     private void Update()
     {
-        if(Time.timeScale > 0)
-            transform.position = transform.position + new Vector3(direction.x, direction.y, 0f)* movementSpeed * Time.deltaTime;
+        if (Time.timeScale > 0)
+            transform.position = transform.position + new Vector3(direction.x, direction.y, 0f) * movementSpeed * Time.deltaTime;
         else
-            transform.position = transform.position + new Vector3(direction.x, direction.y, 0f)* movementSpeed * Time.fixedDeltaTime * 1/20;
+            transform.position = transform.position + new Vector3(direction.x, direction.y, 0f) * movementSpeed * Time.fixedDeltaTime * 1/3;
 
     }
 
