@@ -49,6 +49,8 @@ TODO:
 	-Bruit charger vide quand plus de balle
 	-Curseur qui peuvent sortir de l'écran
 	-MenuFin en anglais
+	-Touches clavier en re-minder
+	-Controls plus progressive si on met des petit accouts sur le stick
 
 Structures du jeux:
 	IShootable:
